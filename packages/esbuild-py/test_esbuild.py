@@ -1,7 +1,7 @@
 from pytest_pyodide import run_in_pyodide
 
 @run_in_pyodide(packages=["esbuild_py"])
-def test_mytestname(selenium):
+def test_jsx(selenium):
     from esbuild_py import transform
 
     jsx = """
