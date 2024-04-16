@@ -1,0 +1,44 @@
+package:
+  name: esbuild-py
+  version: 0.1.5
+  top-level:
+    - esbuild_py
+source:
+  url: https://files.pythonhosted.org/packages/c4/ef/25ec4fa5c99aff207d60516c21952706d81501769ce98d62476f271962cf/esbuild_py-0.1.5.tar.gz
+  sha256: f49fd72faf05264d9d6e587adc7b50ce387def02808ad31593818eeb86fd928f
+build:
+  script: |
+    # Debian-based x86_64 Docker image
+
+    if ! command -v go &> /dev/null
+    then
+
+      wget -q https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
+      tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+
+      export PATH=$PATH:/usr/local/go/bin
+    fi
+    go get github.com/keller-mark/esbuild-py
+
+about:
+  home:
+  PyPI: https://pypi.org/project/esbuild-py
+  summary:
+  license:
+    'MIT License  Copyright (c) 2024 Mark Keller  Permission is hereby granted,
+    free of charge, to any person obtaining a copy of this software and associated
+    documentation files (the "Software"), to deal in the Software without restriction,
+    including without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to permit persons
+    to whom the Software is furnished to do so, subject to the following conditions:  The
+    above copyright notice and this permission notice shall be included in all copies
+    or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT
+    WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+    EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+    OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.'
+extra:
+  recipe-maintainers:
+    - PUT_YOUR_GITHUB_USERNAME_HERE
